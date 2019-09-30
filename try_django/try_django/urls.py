@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import (home_page, heroes_page, game_page, csv_frame)
+from .views import (home_page, heroes_page, game_page)
 
 
 
@@ -27,4 +27,3 @@ urlpatterns = [
 	path('game/', game_page),
     path('admin/', admin.site.urls),
 ]
-
