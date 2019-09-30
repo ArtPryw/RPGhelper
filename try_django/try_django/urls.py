@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from .views import (home_page, heroes_page, game_page)
-
+from heroCreator.views import (hero_detail_page)
 
 
 
@@ -26,4 +26,5 @@ urlpatterns = [
 	path('heroes/', heroes_page),
 	path('game/', game_page),
     path('admin/', admin.site.urls),
+    path('heroViewer/', hero_detail_page)
 ]
