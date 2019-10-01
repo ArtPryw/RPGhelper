@@ -7,6 +7,9 @@ class Hero(models.Model):
     race        = models.TextField(null = True, blank = True)
     profession  = models.TextField(null = True, blank = True)
 
+    #To do ogarnięcia bo nie działa.
+    #slug        = models.SlugField(default = 'this-is-my-slug')
+
     strength    = models.PositiveSmallIntegerField()
     mana        = models.PositiveSmallIntegerField()
     HP          = models.PositiveSmallIntegerField()

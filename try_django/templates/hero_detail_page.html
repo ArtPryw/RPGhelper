@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h1> {{object.name}} </h1>
-<p> {{object.nickname}} </p>
+<center>
+<h1> Imie: {{object.name}} </h1>
+<p> Przydomek: {{object.nickname}} </p>
+<p> Rasa: {{object.race}} </p>
+<p> Profesja: {{object.profession}} </p>
+</center>
+<br>
+<p><b>Statystytki: </p></b>
+<p> Siła: {{object.strength}} </p>
+<p> Mana: {{object.mana}} </p>
+<p> HP: {{object.HP}} </p>
 {% endblock %}
