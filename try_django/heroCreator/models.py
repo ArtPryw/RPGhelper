@@ -13,3 +13,5 @@ class Hero(models.Model):
     strength    = models.PositiveSmallIntegerField()
     mana        = models.PositiveSmallIntegerField()
     HP          = models.PositiveSmallIntegerField()
+
+    level       = models.PositiveSmallIntegerField(default = 0)

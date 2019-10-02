@@ -17,13 +17,25 @@ from django.contrib import admin
 from django.urls import path
 
 from .views import (home_page, heroes_page, game_page)
-from heroCreator.views import (hero_detail_page)
+from heroCreator.views import (
+hero_detail_create_view,
+hero_detail_page,
+hero_detail_list_view,
+hero_detail_update_view,
+hero_detail_delete_view,
+
+)
 
 
 
 urlpatterns = [
 	path('', home_page),
+    path('all-heroes/', hero_detail_list_view),
+    path('all-heroes-new/', hero_detail_create_view),
+
     path('heroes/<str:slug>/', hero_detail_page),
+    path('heroes/<str:slug>/edit/', hero_detail_update_view),
+    path('heroes/<str:slug>/delete/', hero_detail_delete_view),
 	path('heroes/', heroes_page),
 	path('game/', game_page),
     path('admin/', admin.site.urls),
