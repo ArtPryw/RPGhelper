@@ -8,7 +8,7 @@ class Hero(models.Model):
     profession  = models.TextField(null = True, blank = True)
 
     #To do ogarnięcia bo nie działa.
-    #slug        = models.SlugField(default = 'this-is-my-slug')
+    slug        = models.SlugField(unique=True)
 
     strength    = models.PositiveSmallIntegerField()
     mana        = models.PositiveSmallIntegerField()

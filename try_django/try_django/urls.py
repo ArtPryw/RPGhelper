@@ -23,6 +23,7 @@ from heroCreator.views import (hero_detail_page)
 
 urlpatterns = [
 	path('', home_page),
+    path('heroes/<str:slug>/', hero_detail_page),
 	path('heroes/', heroes_page),
 	path('game/', game_page),
     path('admin/', admin.site.urls),
