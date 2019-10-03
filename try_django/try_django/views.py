@@ -10,5 +10,4 @@ def heroes_page(request):
 	return render(request, "heroes_page.html", {"title":"Bohaterowie"})
 
 def game_page(request):
-	return render(request, "game_page.html", {"title":"Rozgrywka"})
-
+	return render(request, "form.html", {"title":"Rozgrywka"})
