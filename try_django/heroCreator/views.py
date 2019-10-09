@@ -3,7 +3,7 @@ from django.http import Http404
 
 # Create your views here.
 from .models import Hero
-
+from .forms import HeroCreateForm
 #CRUD methods:
 
 def hero_detail_list_view(request):
@@ -15,8 +15,12 @@ def hero_detail_list_view(request):
 
 def hero_detail_create_view(request):
     #creating by form
-    template_name='heroCreator/create.html'
-    context = {'form':None}
+    form = HeroCreateForm(request.POST or None)
+    if form.is_valid():
+        obj = Hero.objects.create(**form.cleaned_data)
+        form = HeroCreateForm()
+    template_name='form.html'
+    context = {'form':form}
     return render(request, template_name, context)
 
 
