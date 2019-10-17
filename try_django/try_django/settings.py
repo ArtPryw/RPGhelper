@@ -26,7 +26,7 @@ SECRET_KEY = '89l%43zcy_q7)*qm9c7vt&@v$s#oqkro^p=fl*qyh=gf-wfm1l'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_URL ='/login'
 
 # Application definitionp
 
