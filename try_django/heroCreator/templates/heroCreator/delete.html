@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3> Usuń swojego bohatera </h3>
+<h3> Czy jestes pewien(na) ze chcesz usunac bohatera?</h3>
+
+
+<form method='POST' >{% csrf_token %}
+
+  <button class='btn btn-danger'> Yes, delete </button>
+
+</form>
 {% endblock %}

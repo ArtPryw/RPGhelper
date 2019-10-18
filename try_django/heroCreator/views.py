@@ -38,16 +38,22 @@ def hero_detail_retrieve_view(request, slug):
     context={"object":obj}
     return render(request, template_name, context)
 
-
+staff_member_required
 def hero_detail_update_view(request, slug):
     obj = get_object_or_404(Hero, slug=slug)
-    template_name='heroCreator/update.html'
-    context={"object":obj, 'form':None}
+    form = HeroCreateModelForm(request.POST or None, instance=obj)
+    template_name='form.html'
+    if form.is_valid():
+        form.save()
+    context={'name':f"Update {obj.name}", "form":form}
     return render(request,template_name,context)
 
-
+staff_member_required
 def hero_detail_delete_view(request, slug):
     obj = get_object_or_404(Hero, slug=slug)
     template_name='heroCreator/delete.html'
+    if request.method == "POST":
+        obj.delete()
+    form = HeroCreateModelForm()
     context={"object":obj}
     return render(request, template_name, context)
