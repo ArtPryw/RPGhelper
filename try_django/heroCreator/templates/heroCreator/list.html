@@ -3,7 +3,7 @@
 {% block content %}
     <ol type="1">
   {% for object in object_list %}
-    <li> {{object.name}}, {{object.nickname}}, lvl: {{object.level}}  </li>
+    <li> <a href='/heroes/{{object.slug}}'> {{object.name}}, {{object.nickname}}, lvl: {{object.level}}  </li>
     <br>
   {% endfor %}
     </ol>
