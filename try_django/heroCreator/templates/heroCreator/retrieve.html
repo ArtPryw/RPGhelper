@@ -12,4 +12,11 @@
 <p> Siła: {{object.strength}} </p>
 <p> Mana: {{object.mana}} </p>
 <p> HP: {{object.HP}} </p>
+
+{% if request.user.is_authenticated %}
+  {% if request.user.is_staff %}
+    <a href='{{ object.get_edit_url}}'>Edytuj</a>
+    <a href='{{ object.get_delete_url }}'>Usun</a>
+  {% endif %}
+{% endif %}
 {% endblock %}

@@ -22,3 +22,14 @@ class Hero(models.Model):
     HP          = models.PositiveSmallIntegerField()
 
     level       = models.PositiveSmallIntegerField(default = 0)
+
+
+
+    def get_absolute_url(self):
+        return f"/heroes/{self.slug}"
+
+    def get_edit_url(self):
+        return f"/heroes/{self.slug}/edit/"
+
+    def get_delete_url(self):
+        return f"/heroes/{self.slug}/delete/"
