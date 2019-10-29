@@ -26,7 +26,7 @@ class Hero(models.Model):
 
 
     def get_absolute_url(self):
-        return f"/heroes/{self.slug}"
+        return f"/heroes/{self.slug}/"
 
     def get_edit_url(self):
         return f"/heroes/{self.slug}/edit/"
