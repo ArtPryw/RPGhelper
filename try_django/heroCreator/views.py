@@ -44,6 +44,7 @@ def hero_detail_update_view(request, slug):
     form = HeroCreateModelForm(request.POST or None, instance=obj)
     template_name='form.html'
     if form.is_valid():
+        obj.slug = str.lower(obj.name + "-" + obj.nickname)
         form.save()
     context={'name':f"Update {obj.name}", "form":form}
     return render(request,template_name,context)

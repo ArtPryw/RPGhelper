@@ -1,10 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Nick</th>
+      <th scope="col">Level</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
     <ol type="1">
   {% for object in object_list %}
-    <li> <a href='{{ object.get_absolute_url }}'> {{object.name}}, {{object.nickname}}, lvl: {{object.level}}  </li>
-    <br>
+    {% include 'heroCreator/list-inline.html' %}
+
+      <br>
   {% endfor %}
     </ol>
 {% endblock %}
