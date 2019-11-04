@@ -28,7 +28,7 @@ urlpatterns = [
 	path('', home_page),
     path('heroes-new/', hero_detail_create_view),
     path('heroes/', include('heroCreator.urls')),
-
+    path('accounts/', include('django.contrib.auth.urls')),
 	path('game/', game_page),
     path('admin/', admin.site.urls),
 ]

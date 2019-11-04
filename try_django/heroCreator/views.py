@@ -15,14 +15,15 @@ def hero_detail_list_view(request):
     context = {'object_list':qs}
     return render(request, template_name, context)
 
-#@login_required
-@staff_member_required
+@login_required
+#@staff_member_required
 def hero_detail_create_view(request):
     #creating by form
     form = HeroCreateModelForm(request.POST or None)
     if form.is_valid():
         obj = form.save(commit=False)
-        obj.slug = str.lower(form.cleaned_data.get('name') + "-" + form.cleaned_data.get('nickname'))
+        slugCreate = str.lower(form.cleaned_data.get('name') + "-" + form.cleaned_data.get('nickname'))
+        obj.slug = slugCreate.replace(" ","")
         obj.user = request.user
         obj.save()
         form = HeroCreateModelForm()
@@ -38,7 +39,7 @@ def hero_detail_retrieve_view(request, slug):
     context={"object":obj}
     return render(request, template_name, context)
 
-staff_member_required
+@staff_member_required
 def hero_detail_update_view(request, slug):
     obj = get_object_or_404(Hero, slug=slug)
     form = HeroCreateModelForm(request.POST or None, instance=obj)
