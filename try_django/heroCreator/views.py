@@ -39,23 +39,27 @@ def hero_detail_retrieve_view(request, slug):
     context={"object":obj}
     return render(request, template_name, context)
 
-@staff_member_required
+@login_required
 def hero_detail_update_view(request, slug):
     obj = get_object_or_404(Hero, slug=slug)
     form = HeroCreateModelForm(request.POST or None, instance=obj)
     template_name='form.html'
-    if form.is_valid():
-        obj.slug = str.lower(obj.name + "-" + obj.nickname)
-        form.save()
+    # DO POPRAWY KONIECZNIE JAK NAJSZYBCIEJ!s
+    if request.user == Hero.user:
+        if form.is_valid():
+            obj.slug = str.lower(obj.name + "-" + obj.nickname)
+            form.save()
+    else:
+        print("nie masz uprawnień!")
     context={'name':f"Update {obj.name}", "form":form}
     return render(request,template_name,context)
 
-staff_member_required
+@login_required
 def hero_detail_delete_view(request, slug):
     obj = get_object_or_404(Hero, slug=slug)
     template_name='heroCreator/delete.html'
     if request.method == "POST":
-        obj.delete()
+            obj.delete()
     form = HeroCreateModelForm()
     context={"object":obj}
     return render(request, template_name, context)

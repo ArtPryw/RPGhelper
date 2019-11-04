@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 
 from .views import (home_page, heroes_page, game_page)
 from heroCreator.views import (
@@ -28,7 +29,7 @@ urlpatterns = [
 	path('', home_page),
     path('heroes-new/', hero_detail_create_view),
     path('heroes/', include('heroCreator.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('login/', auth_views.LoginView.as_view()),
 	path('game/', game_page),
     path('admin/', admin.site.urls),
 ]
