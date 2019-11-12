@@ -58,8 +58,11 @@ def hero_detail_update_view(request, slug):
 def hero_detail_delete_view(request, slug):
     obj = get_object_or_404(Hero, slug=slug)
     template_name='heroCreator/delete.html'
-    if request.method == "POST":
-            obj.delete()
+    if request.user == obj.user:
+        if request.method == "POST":
+                obj.delete()
+    else:
+        print("nie masz uprawnień do zrobienia tego!")
     form = HeroCreateModelForm()
     context={"object":obj}
     return render(request, template_name, context)

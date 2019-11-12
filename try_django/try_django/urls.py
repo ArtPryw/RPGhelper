@@ -30,6 +30,7 @@ urlpatterns = [
     path('heroes-new/', hero_detail_create_view),
     path('heroes/', include('heroCreator.urls')),
     path('login/', auth_views.LoginView.as_view()),
+    path('logout/', auth_views.LogoutView.as_view()),
 	path('game/', game_page),
     path('admin/', admin.site.urls),
 ]
