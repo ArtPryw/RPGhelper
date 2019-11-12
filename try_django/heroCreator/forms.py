@@ -1,5 +1,6 @@
 from django import forms
 from .models import Hero
+import random
 
 class HeroCreateForm(forms.Form):
 
@@ -15,10 +16,25 @@ class HeroCreateForm(forms.Form):
     mana        = forms.IntegerField()
     HP          = forms.IntegerField()
 
+
+def statsRandomizer():
+    str_random = random.randint(1,20)
+    mana_random = random.randint(1,100)
+    HP_random = random.randint(1,30)
+    result = [str_random, mana_random, HP_random]
+    return result
+
+listOfRandomStats = statsRandomizer()
+
+
+
 class HeroCreateModelForm(forms.ModelForm):
     class Meta:
         model = Hero
-        fields = ['name', 'nickname', 'race', 'profession', 'strength', 'mana', 'HP']
+        fields = ['name', 'nickname', 'race', 'profession' ]
+        strength    = listOfRandomStats[0]
+        mana        = listOfRandomStats[1]
+        HP          = listOfRandomStats[2]
 
     def clean_name(self, *args, **kwargs):
         instance = self.instance
