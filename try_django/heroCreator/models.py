@@ -7,6 +7,19 @@ import random
 User = settings.AUTH_USER_MODEL
 
 class Hero(models.Model):
+
+    def strengthRandomizer():
+        str_random = random.randint(1,20)
+        return str_random
+
+    def manaRandomizer():
+        mana_random = random.randint(1,100)
+        return mana_random
+
+    def hpRandomizer():
+        HP_random = random.randint(1,30)
+        return HP_random
+
     RACES = {
     ("None", "None"),
     ("Human", "Human"),
@@ -28,9 +41,9 @@ class Hero(models.Model):
     #To do ogarnięcia bo nie działa.
     slug        = models.SlugField(unique=True)
 
-    strength    = models.PositiveSmallIntegerField(default=1)
-    mana        = models.PositiveSmallIntegerField(default=1)
-    HP          = models.PositiveSmallIntegerField(default = 1)
+    strength    = models.PositiveSmallIntegerField(default=strengthRandomizer)
+    mana        = models.PositiveSmallIntegerField(default=manaRandomizer)
+    HP          = models.PositiveSmallIntegerField(default=hpRandomizer)
 
     level       = models.PositiveSmallIntegerField(default = 0)
 

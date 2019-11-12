@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
+
 from .views import (home_page, heroes_page, game_page)
 from heroCreator.views import (
 hero_detail_create_view,
@@ -33,4 +34,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view()),
 	path('game/', game_page),
     path('admin/', admin.site.urls),
+
 ]
