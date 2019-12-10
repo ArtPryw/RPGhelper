@@ -1,0 +1,16 @@
+h1
+{
+  color:red;
+}
+
+.navbar-nav li{
+  margin-right: 10px;
+  display: inline-block;
+}
+.navbar-nav li:last-child(){
+  margin-right: 0px;
+}
+
+.btn{
+    margin: 0 5px !important;
+}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 <table class="table table-striped">
   <thead>
@@ -15,8 +16,6 @@
     <ol type="1">
   {% for object in object_list %}
     {% include 'heroCreator/list-inline.html' %}
-
-      <br>
   {% endfor %}
     </ol>
 {% endblock %}
