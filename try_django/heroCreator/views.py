@@ -32,6 +32,8 @@ def hero_detail_create_view(request):
     return render(request, template_name, context)
 
 
+
+
 def hero_detail_retrieve_view(request, slug):
     #return one object
     obj = get_object_or_404(Hero, slug=slug)
