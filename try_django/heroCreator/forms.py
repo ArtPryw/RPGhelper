@@ -7,22 +7,22 @@ class HeroCreateForm(forms.Form):
     name        = forms.CharField()
     nickname    = forms.CharField()
     race        = forms.CharField()
+    classes     = forms.CharField()
     profession  = forms.CharField()
 
     #To do ogarnięcia bo nie działa.
     slug        = forms.SlugField()
-
+    story       = forms.CharField()
     strength    = forms.IntegerField()
     mana        = forms.IntegerField()
     HP          = forms.IntegerField()
 
 
 
-
 class HeroCreateModelForm(forms.ModelForm):
     class Meta:
         model = Hero
-        fields = ['name', 'nickname', 'race', 'profession', 'strength', 'mana', 'HP' ]
+        fields = ['name', 'nickname', 'race','classes', 'profession', 'story', 'strength', 'mana', 'HP' ]
 
 
     def clean_name(self, *args, **kwargs):

@@ -30,12 +30,23 @@ class Hero(models.Model):
     ("Gnome", "Gnome"),
     }
 
+    classes = {
+    ("Mage", "Mage"),
+    ("Priest", "Priest"),
+    ("Warlock", "Warlock"),
+    ("Warrior", "Warrior"),
+    ("Hunter", "Hunter"),
+    ("Palladin", "Palladin"),
+    ("Rouge", "Rouge"),
+    ("Druid", "Druid"),
+    }
 
     user        = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
 
     name        = models.CharField(max_length=30)
     nickname    = models.CharField(max_length=30)
     race        = models.CharField(default=0, choices=RACES, max_length = 30)
+    classes     = models.CharField(default=0, choices=classes, max_length = 30)
     profession  = models.CharField(max_length=30)
 
     #To do ogarnięcia bo nie działa.
@@ -46,6 +57,8 @@ class Hero(models.Model):
     HP          = models.PositiveSmallIntegerField(default=hpRandomizer)
 
     level       = models.PositiveSmallIntegerField(default = 0)
+
+    story       = models.TextField()
 
 
 

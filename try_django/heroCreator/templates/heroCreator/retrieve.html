@@ -3,8 +3,11 @@
 
 {% block content %}
 <center>
-<h2> {{object.name}} {{object.nickname}} </h2>
+  <h2> {{object.name}} {{object.nickname}} </h2>
+</center>
+<left>
 <p> Rasa: {{object.race}} </p>
+<p> Klasa: {{object.classes}} </p>
 <p> Profesja: {{object.profession}} </p>
 <br>
 <p><b>Statystytki: </p></b>
@@ -12,7 +15,9 @@
 <p> Mana: {{object.mana}} </p>
 <p> HP: {{object.HP}} </p>
 <p> AUTOR: {{ object.user }}
-</center>
+<p> HISTORIA: {{ object.story }}
+
+</left>
 <br><br>
 <div align="right">
 {% if request.user.is_authenticated %}
